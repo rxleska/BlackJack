@@ -13,9 +13,8 @@ namespace BlackJack
             {
                 for (int x = 0; x < 13; x++)
                 {
-                    Card y = new Card(x + 1, i );
+                    Card y = new Card(x + 1,(SuitEnum) i );
                     deck.Add(y);
-
                 }
             }
             Random rnd = new Random();
