@@ -11,5 +11,21 @@
             SuitNumeric = suit;
             
         }
+        public override string ToString()
+        {
+            switch (this.SuitNumeric)
+            {
+                case SuitEnum.Club:
+                    return "C";
+                case SuitEnum.Diamond:
+                    return "D";
+                case SuitEnum.Heart:
+                    return "H";
+                case SuitEnum.Spade:
+                    return "S";
+                default:
+                    return "";
+            }
+        }
     }
 }
