@@ -8,7 +8,14 @@
         public NameEnum NameAlphabetic { get; set; }
         public Card(int numericValue, SuitEnum suit, NameEnum cardName)
         {
-            NumericValue = numericValue;
+            if (numericValue == 1)
+            {
+                NumericValue = 11;
+            }
+            else
+            {
+                NumericValue = numericValue;
+            }
             SuitNumeric = suit;
             NameAlphabetic = cardName;
             
