@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace BlackJack
 {
-    internal class Shoe
+    public class Shoe
     {
         public List<Card> cards { get; set; }
 
@@ -15,11 +15,16 @@ namespace BlackJack
         public void GenerateDeck()
         {
             
-            for (int i = 0; i < 4; i++)
+            for (int numberOfSuites = 0; numberOfSuites < 4; numberOfSuites++)
             {
-                for (int x = 0; x < 13; x++)
+                for (int numberOfCardsPerSuit = 0; numberOfCardsPerSuit < 10; numberOfCardsPerSuit++)
                 {
-                    Card y = new Card(x + 1, (SuitEnum)i);
+                    Card y = new Card(numberOfCardsPerSuit + 1, (SuitEnum)numberOfSuites, (NameEnum)numberOfCardsPerSuit);
+                    cards.Add(y);
+                }
+                for (int i = 0; i < 3; i++)
+                {
+                    Card y = new Card(10, (SuitEnum)numberOfSuites, (NameEnum) i+10);
                     cards.Add(y);
                 }
             }

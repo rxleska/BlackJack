@@ -5,10 +5,12 @@
         public int NumericValue { get; set; }
         public SuitEnum SuitNumeric { get; set; }
         public string Suit { get { return SuitNumeric.ToString(); } }
-        public Card(int numericValue, SuitEnum suit)
+        public NameEnum NameAlphabetic { get; set; }
+        public Card(int numericValue, SuitEnum suit, NameEnum cardName)
         {
             NumericValue = numericValue;
             SuitNumeric = suit;
+            NameAlphabetic = cardName;
             
         }
         public override string ToString()
