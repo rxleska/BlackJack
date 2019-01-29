@@ -14,7 +14,6 @@ namespace BlackJack
 
         public void GenerateDeck()
         {
-            
             for (int numberOfSuites = 0; numberOfSuites < 4; numberOfSuites++)
             {
                 for (int numberOfCardsPerSuit = 0; numberOfCardsPerSuit < 10; numberOfCardsPerSuit++)

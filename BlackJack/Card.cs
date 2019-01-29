@@ -25,13 +25,13 @@
             switch (this.SuitNumeric)
             {
                 case SuitEnum.Club:
-                    return "C";
+                    return "of Clubs";
                 case SuitEnum.Diamond:
-                    return "D";
+                    return "of Diamonds";
                 case SuitEnum.Heart:
-                    return "H";
+                    return "of Hearts";
                 case SuitEnum.Spade:
-                    return "S";
+                    return "of Spades";
                 default:
                     return "";
             }

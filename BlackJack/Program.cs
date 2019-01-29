@@ -8,14 +8,26 @@ namespace BlackJack
     class Program
     {
         public static System.Text.Encoding Unicode { get; }
-
         static void Main(string[] args)
         {
             bool continueProgram = true;
             do
             {
+
+                //int numberOfDecksParsed;
+                //string numberOfDecksInTheShoe;
+                //bool numberOfDeckParseCatch = false;
+                //int numberOfDecksInTheShoeParsed;
+                //while (numberOfDeckParseCatch == false)
+                //{
+                //    Console.Write("Type numbers of decks in the shoe: ");
+                //    numberOfDecksInTheShoe = Console.ReadLine();
+                //   numberOfDeckParseCatch = int.TryParse(numberOfDecksInTheShoe, out numberOfDecksParsed);
+                //}
+
                 Console.Clear();
                 Shoe decks = new Shoe();
+
                 decks.GenerateDeck();
 
                 bool dealerNeedsToDraw = true;
@@ -51,6 +63,11 @@ namespace BlackJack
                 int timesThroughTheHitOrMissLoop = 1;
                 do
                 {
+                    if (playersHandValue > 21)
+                    {
+                        Console.WriteLine("Player Busted");
+                        break;
+                    }
                     Deal.askForHitOrStay(ref askForHitAgain, deck, playerHand, ref playersHandValue, ref timesThroughTheHitOrMissLoop);
                 } while (askForHitAgain);
                 Console.WriteLine();
