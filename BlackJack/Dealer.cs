@@ -17,7 +17,8 @@ namespace BlackJack
         {
             foreach (var card in dealerHand)
             {
-                Console.WriteLine("{1} {0}", card, card.NameAlphabetic);
+                Console.WriteLine(card.AscIIPicture);
+                //Console.WriteLine("{1} {0}", card, card.NameAlphabetic);
                 dealerHandValue = dealerHandValue + card.NumericValue;
             }
             if (dealerHandValue > 21)
@@ -30,8 +31,9 @@ namespace BlackJack
         {
             int dealerHandValue;
             //Displays one of the dealers cards and ?? ?? as the other card
-            Console.WriteLine("{1} {0}", dealerHand[0], dealerHand[0].NameAlphabetic);
-            Console.WriteLine("?? ??");
+            Console.WriteLine(dealerHand[0].AscIIPicture);
+            //Console.WriteLine("{2}\n{1} {0}", dealerHand[0], dealerHand[0].NameAlphabetic, dealerHand[0].AscIIPicture);
+            //Console.WriteLine("?? ??");
             // Calculates the dealers hand value
             dealerHandValue = dealerHand[1].NumericValue + dealerHand[0].NumericValue;
             return dealerHandValue;

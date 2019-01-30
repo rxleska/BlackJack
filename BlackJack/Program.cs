@@ -10,6 +10,7 @@ namespace BlackJack
         public static System.Text.Encoding Unicode { get; }
         static void Main(string[] args)
         {
+            
             bool continueProgram = true;
             do
             {
@@ -27,9 +28,10 @@ namespace BlackJack
 
                 Console.Clear();
                 Shoe decks = new Shoe();
-
+                
                 decks.GenerateDeck();
 
+                
                 bool dealerNeedsToDraw = true;
                 bool askForHitAgain = true;
                 bool playerBusted = false;
@@ -38,6 +40,13 @@ namespace BlackJack
 
 
                 var deck = decks.cards;
+
+                int cardNumber = -1;
+                foreach (var card in deck)
+                {
+                    cardNumber++;
+                    AscIICardPictures.findAscIIPicture(deck, cardNumber);
+                }
 
                 //Draws 2 cards and puts them in list players hand
                 List<Card> playerHand = Player.startingDealPlayer(deck);
@@ -57,8 +66,10 @@ namespace BlackJack
 
                 //Displays Players Hand Value
                 Console.WriteLine("\nYou drew " + playersHandValue + "\n");
+                
 
-
+                
+                
                 // doWhile Loop ask for hit or stay
                 int timesThroughTheHitOrMissLoop = 1;
                 do
@@ -66,6 +77,7 @@ namespace BlackJack
                     if (playersHandValue > 21)
                     {
                         Console.WriteLine("Player Busted");
+                        playerBusted = true;
                         break;
                     }
                     Deal.askForHitOrStay(ref askForHitAgain, deck, playerHand, ref playersHandValue, ref timesThroughTheHitOrMissLoop);
@@ -84,11 +96,14 @@ namespace BlackJack
 
 
                 Table.CheckForWin(playerBusted, dealerBusted, dealerHandValue, playersHandValue);
+                
 
                 continueProgram = Table.Restart();
 
             } while (continueProgram);
         }
+
+        
     }
     
 }

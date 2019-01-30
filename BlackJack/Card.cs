@@ -6,6 +6,7 @@
         public SuitEnum SuitNumeric { get; set; }
         public string Suit { get { return SuitNumeric.ToString(); } }
         public NameEnum NameAlphabetic { get; set; }
+        public string AscIIPicture { get; set; }
         public Card(int numericValue, SuitEnum suit, NameEnum cardName)
         {
             if (numericValue == 1)

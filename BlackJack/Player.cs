@@ -18,7 +18,8 @@ namespace BlackJack
             Console.WriteLine("Your hand shows:");
             foreach (var card in playerHand)
             {
-                Console.WriteLine("{1} {0}", card, card.NameAlphabetic);
+                Console.WriteLine(card.AscIIPicture);
+                //Console.WriteLine("{1} {0}", card, card.NameAlphabetic);
                 playersHandValue = playersHandValue + card.NumericValue;
             }
 
