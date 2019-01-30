@@ -85,14 +85,18 @@ namespace BlackJack
                 Console.WriteLine();
 
                 int timesThroughTheDealerLessThanLoop = 1;
+                if (playerBusted == false)
+                {
+                    Deal.checkForDraw(ref dealerNeedsToDraw, deck, dealerHand, ref dealerHandValue, ref timesThroughTheDealerLessThanLoop);
+                    // while loop to check if dealer need to hit or stay
 
-                Deal.checkForDraw(ref dealerNeedsToDraw, deck, dealerHand, ref dealerHandValue, ref timesThroughTheDealerLessThanLoop);
-                // while loop to check if dealer need to hit or stay
+                    Console.WriteLine("Dealer Has\n");
+                    dealerHandValue = dealerHandValue - dealerHandValue;
+                    Dealer.checkForDealerBust(ref dealerBusted, dealerHand, ref dealerHandValue);
+                }
+                
 
-                Console.WriteLine("Dealer Has\n");
-                dealerHandValue = dealerHandValue - dealerHandValue;
-
-                Dealer.checkForDealerBust(ref dealerBusted, dealerHand, ref dealerHandValue);
+                
 
 
                 Table.CheckForWin(playerBusted, dealerBusted, dealerHandValue, playersHandValue);

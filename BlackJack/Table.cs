@@ -29,11 +29,19 @@ namespace BlackJack
         }
         public static void CheckForWin(bool playerBusted, bool dealerBusted, int dealerHandValue, int playersHandValue)
         {
-            if (dealerHandValue > playersHandValue && dealerBusted == false || playerBusted == true)
+            if (playerBusted)
+            {
+                Console.WriteLine("\nYou Lose");
+            }
+            else if (dealerBusted)
+            {
+                Console.WriteLine("\nYou Win");
+            }
+            else if (dealerHandValue > playersHandValue)
             {
                 Console.WriteLine("\nHouse Wins");
             }
-            else if (dealerHandValue < playersHandValue && playerBusted == false || dealerBusted == true)
+            else if (dealerHandValue < playersHandValue)
             {
                 Console.WriteLine("\nYou Win");
             }

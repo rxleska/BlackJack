@@ -31,7 +31,7 @@ namespace BlackJack
         }
         public static void askForHitOrStay(ref bool askForHitAgain, List<Card> deck, List<Card> playerHand, ref int playersHandValue, ref int timesThroughTheHitOrMissLoop)
         {
-            Console.WriteLine("Hit or Stay (\"H\" or \"hit\" to hit/\"S\" or \"stay\" to stay/\"D\" or \"double\" to double down)");
+            Console.WriteLine("Hit, Stay, or DoubleDown (\"H\" or \"hit\" to hit/\"S\" or \"stay\" to stay/\"D\" or \"double\" to double down)");
             string hitOrStayNoCase = Console.ReadLine();
             string hitOrStayUpCase = hitOrStayNoCase.ToUpper();
             
