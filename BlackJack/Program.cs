@@ -36,7 +36,8 @@ namespace BlackJack
                 bool askForHitAgain = true;
                 bool playerBusted = false;
                 bool dealerBusted = false;
-                bool aceInHand = false;
+                //bool
+                //bool aceInHand = false;
 
 
                 var deck = decks.cards;
@@ -66,41 +67,38 @@ namespace BlackJack
 
                 //Displays Players Hand Value
                 Console.WriteLine("\nYou drew " + playersHandValue + "\n");
-                
-
-                
-                
-                // doWhile Loop ask for hit or stay
-                int timesThroughTheHitOrMissLoop = 1;
-                do
+                if (playersHandValue == 21)
                 {
-                    if (playersHandValue > 21)
-                    {
-                        Console.WriteLine("Player Busted");
-                        playerBusted = true;
-                        break;
-                    }
-                    Deal.askForHitOrStay(ref askForHitAgain, deck, playerHand, ref playersHandValue, ref timesThroughTheHitOrMissLoop);
-                } while (askForHitAgain);
-                Console.WriteLine();
-
-                int timesThroughTheDealerLessThanLoop = 1;
-                if (playerBusted == false)
-                {
-                    Deal.checkForDraw(ref dealerNeedsToDraw, deck, dealerHand, ref dealerHandValue, ref timesThroughTheDealerLessThanLoop);
-                    // while loop to check if dealer need to hit or stay
-
-                    Console.WriteLine("Dealer Has\n");
-                    dealerHandValue = dealerHandValue - dealerHandValue;
-                    Dealer.checkForDealerBust(ref dealerBusted, dealerHand, ref dealerHandValue);
+                    Console.WriteLine("Black Jack!!!\nYou Win!!!\n");
                 }
-                
+                else
+                {
+                    int timesThroughTheHitOrMissLoop = 1;
+                    do
+                    {
+                        if (playersHandValue > 21)
+                        {
+                            Console.WriteLine("Player Busted");
+                            playerBusted = true;
+                            break;
+                        }
+                        Deal.askForHitOrStay(ref askForHitAgain, deck, playerHand, ref playersHandValue, ref timesThroughTheHitOrMissLoop);
+                    } while (askForHitAgain);
+                    Console.WriteLine();
 
-                
+                    int timesThroughTheDealerLessThanLoop = 1;
+                    if (playerBusted == false)
+                    {
+                        Deal.checkForDraw(ref dealerNeedsToDraw, deck, dealerHand, ref dealerHandValue, ref timesThroughTheDealerLessThanLoop);
 
+                        Console.WriteLine("Dealer Has\n");
+                        dealerHandValue = dealerHandValue - dealerHandValue;
 
-                Table.CheckForWin(playerBusted, dealerBusted, dealerHandValue, playersHandValue);
-                
+                        Dealer.checkForDealerBust(ref dealerBusted, dealerHand, ref dealerHandValue);
+                    }
+
+                    Table.CheckForWin(playerBusted, dealerBusted, dealerHandValue, playersHandValue);
+                }
 
                 continueProgram = Table.Restart();
 
