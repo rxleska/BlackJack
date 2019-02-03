@@ -16,50 +16,30 @@ namespace BlackJack
             {
                 Console.Clear();
                 Shoe decks = new Shoe();
-                
+
                 decks.GenerateDeck();
 
-                
                 bool dealerNeedsToDraw = true;
                 bool askForHitAgain = true;
                 bool playerBusted = false;
                 bool dealerBusted = false;
-                //bool
-                //bool aceInHand = false;
-
 
                 var deck = decks.cards;
 
-                int cardNumber = -1;
-                foreach (var card in deck)
-                {
-                    cardNumber++;
-                    AscIICardPictures.findAscIIPicture(deck, cardNumber);
-                }
+                Shoe.addAsciiCards(deck);
 
-                /*foreach (var card in deck)
-                {
-                    Console.WriteLine("{0}{1}{2}{3}",card.NameAlphabetic,card.NumericValue,card.Suit,card.AscIIPicture);
-                }*/
-
-                
-                //Draws 2 cards and puts them in list players hand
                 List<Card> playerHand = Player.startingDealPlayer(deck);
 
-                //Draws 2 cards and puts them in the list dealers hand
                 List<Card> dealerHand = Dealer.startingDealDealer(deck);
 
                 int dealerHandValue = 0;
                 dealerHandValue = Dealer.showOneOfDealersCards(dealerHand);
 
-                //Displays the value of the dealers showing card
                 Console.WriteLine("\nDealer Shows " + dealerHand[0].NumericValue + "\n");
 
-                //Displays all of the players cards
                 int playersHandValue = 0;
                 playersHandValue = Player.displaysPlayersCards(playerHand, playersHandValue);
 
-                //Displays Players Hand Value
                 Console.WriteLine("\nYou drew " + playersHandValue + "\n");
                 if (playersHandValue == 21)
                 {
@@ -100,12 +80,11 @@ namespace BlackJack
 
                             Dealer.checkForDealerBust(ref dealerBusted, dealerHand, ref dealerHandValue);
                         }
-
                         Table.CheckForWin(playerBusted, dealerBusted, dealerHandValue, playersHandValue);
                     }
                 }
-                    
-    
+
+
                 continueProgram = Table.Restart();
 
             } while (continueProgram);
@@ -113,6 +92,7 @@ namespace BlackJack
         }
 
         
+
     }
     
 }

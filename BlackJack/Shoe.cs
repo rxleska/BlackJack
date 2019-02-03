@@ -30,6 +30,16 @@ namespace BlackJack
                     }
                 }
             }
+
+        }
+        public static void addAsciiCards(List<Card> deck)
+        {
+            int cardNumber = -1;
+            foreach (var card in deck)
+            {
+                cardNumber++;
+                AscIICardPictures.findAscIIPicture(deck, cardNumber);
+            }
         }
     }
 }
