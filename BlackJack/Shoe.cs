@@ -14,17 +14,20 @@ namespace BlackJack
 
         public void GenerateDeck()
         {
-            for (int numberOfSuites = 0; numberOfSuites < 4; numberOfSuites++)
+            for (int numberOfDecks = 0; numberOfDecks < 4; numberOfDecks++)
             {
-                for (int numberOfCardsPerSuit = 0; numberOfCardsPerSuit < 10; numberOfCardsPerSuit++)
+                for (int numberOfSuites = 0; numberOfSuites < 4; numberOfSuites++)
                 {
-                    Card y = new Card(numberOfCardsPerSuit + 1, (SuitEnum)numberOfSuites, (NameEnum)numberOfCardsPerSuit);
-                    cards.Add(y);
-                }
-                for (int i = 0; i < 3; i++)
-                {
-                    Card y = new Card(10, (SuitEnum)numberOfSuites, (NameEnum) i+10);
-                    cards.Add(y);
+                    for (int numberOfCardsPerSuit = 0; numberOfCardsPerSuit < 10; numberOfCardsPerSuit++)
+                    {
+                        Card y = new Card(numberOfCardsPerSuit + 1, (SuitEnum)numberOfSuites, (NameEnum)numberOfCardsPerSuit);
+                        cards.Add(y);
+                    }
+                    for (int i = 0; i < 3; i++)
+                    {
+                        Card y = new Card(10, (SuitEnum)numberOfSuites, (NameEnum)i + 10);
+                        cards.Add(y);
+                    }
                 }
             }
         }

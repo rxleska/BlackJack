@@ -14,18 +14,6 @@ namespace BlackJack
             bool continueProgram = true;
             do
             {
-
-                //int numberOfDecksParsed;
-                //string numberOfDecksInTheShoe;
-                //bool numberOfDeckParseCatch = false;
-                //int numberOfDecksInTheShoeParsed;
-                //while (numberOfDeckParseCatch == false)
-                //{
-                //    Console.Write("Type numbers of decks in the shoe: ");
-                //    numberOfDecksInTheShoe = Console.ReadLine();
-                //   numberOfDeckParseCatch = int.TryParse(numberOfDecksInTheShoe, out numberOfDecksParsed);
-                //}
-
                 Console.Clear();
                 Shoe decks = new Shoe();
                 
@@ -49,6 +37,12 @@ namespace BlackJack
                     AscIICardPictures.findAscIIPicture(deck, cardNumber);
                 }
 
+                /*foreach (var card in deck)
+                {
+                    Console.WriteLine("{0}{1}{2}{3}",card.NameAlphabetic,card.NumericValue,card.Suit,card.AscIIPicture);
+                }*/
+
+                
                 //Draws 2 cards and puts them in list players hand
                 List<Card> playerHand = Player.startingDealPlayer(deck);
 
@@ -111,10 +105,11 @@ namespace BlackJack
                     }
                 }
                     
-
+    
                 continueProgram = Table.Restart();
 
             } while (continueProgram);
+            
         }
 
         
