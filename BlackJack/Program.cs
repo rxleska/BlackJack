@@ -82,23 +82,35 @@ namespace BlackJack
                             playerBusted = true;
                             break;
                         }
+                        else if (playersHandValue == 21)
+                        {
+                            break;
+                        }
                         Deal.askForHitOrStay(ref askForHitAgain, deck, playerHand, ref playersHandValue, ref timesThroughTheHitOrMissLoop);
                     } while (askForHitAgain);
-                    Console.WriteLine();
-
-                    int timesThroughTheDealerLessThanLoop = 1;
-                    if (playerBusted == false)
+                    if (playersHandValue == 21)
                     {
-                        Deal.checkForDraw(ref dealerNeedsToDraw, deck, dealerHand, ref dealerHandValue, ref timesThroughTheDealerLessThanLoop);
-
-                        Console.WriteLine("Dealer Has\n");
-                        dealerHandValue = dealerHandValue - dealerHandValue;
-
-                        Dealer.checkForDealerBust(ref dealerBusted, dealerHand, ref dealerHandValue);
+                        Console.WriteLine("Black Jack!!!\nYou Win!!!\n");
                     }
+                    else
+                    {
+                        Console.WriteLine();
 
-                    Table.CheckForWin(playerBusted, dealerBusted, dealerHandValue, playersHandValue);
+                        int timesThroughTheDealerLessThanLoop = 1;
+                        if (playerBusted == false)
+                        {
+                            Deal.checkForDraw(ref dealerNeedsToDraw, deck, dealerHand, ref dealerHandValue, ref timesThroughTheDealerLessThanLoop);
+
+                            Console.WriteLine("Dealer Has\n");
+                            dealerHandValue = dealerHandValue - dealerHandValue;
+
+                            Dealer.checkForDealerBust(ref dealerBusted, dealerHand, ref dealerHandValue);
+                        }
+
+                        Table.CheckForWin(playerBusted, dealerBusted, dealerHandValue, playersHandValue);
+                    }
                 }
+                    
 
                 continueProgram = Table.Restart();
 
